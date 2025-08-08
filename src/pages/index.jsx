@@ -17,7 +17,7 @@ export default function Home(){
     <Page4/>
     <Page5/>
   </div>
-  )
+  ) 
 }
 
 
