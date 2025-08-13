@@ -27,24 +27,19 @@ const cards = [
 ];
 
 function SelectActionCard() {
-  const [selectedCard, setSelectedCard] = React.useState(0);
   return (
     <div>
       <h6
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          marginBottom: "2vmin",
+          textAlign: "center",
+          marginTop: 50,
         }}
       >
         Services
       </h6>
       <h3
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
+          textAlign: "center",
         }}
       >
         Quality Services
@@ -57,32 +52,25 @@ function SelectActionCard() {
           gridTemplateColumns:
             "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
           gap: 2,
+          mb: 6,
         }}
       >
-        {cards.map((card, index) => (
-          <Card>
-            <CardActionArea
-              onClick={() => setSelectedCard(index)}
-              data-active={selectedCard === index ? "" : undefined}
-              sx={{
-                height: "100%",
-                "&[data-active]": {
-                  backgroundColor: "action.selected",
-                  "&:hover": {
-                    backgroundColor: "action.selectedHover",
-                  },
-                },
-              }}
-            >
-              <CardContent sx={{ height: "100%" }}>
-                <Typography variant="h5" component="div">
-                  {card.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {card.description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
+        {cards.map((card) => (
+          <Card
+            sx={{
+              height: "100%",
+
+              backgroundColor: "#e6eaee",
+            }}
+          >
+            <CardContent sx={{ height: "100%" }}>
+              <Typography variant="h5" component="div">
+                {card.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {card.description}
+              </Typography>
+            </CardContent>
           </Card>
         ))}
       </Box>

@@ -43,7 +43,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <Box sx={{ backgroundColor: 'white', py: 8 }}>
+    <Box sx={{ backgroundColor: 'white', py: 8}}>
       <Container>
         <Typography variant="overline" textAlign="center" display="block">
           PRICING
@@ -52,7 +52,7 @@ export default function PricingSection() {
           Flexible Pricing Plan
         </Typography>
 
-        <Grid container spacing={4} mt={2}>
+        <Grid container spacing={4} mt={2} justifyContent="center">
           {pricingData.map((plan, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card sx={{ p: 3, borderRadius: 3, backgroundColor: '#f5f7fa', boxShadow: 'none', border: '1px solid #dfe3e8' }}>

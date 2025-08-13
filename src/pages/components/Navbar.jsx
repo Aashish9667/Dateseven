@@ -8,11 +8,12 @@ import Typography from "@mui/material/Typography";
 export default function Navbar() {
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         backgroundColor: "white", // white background
         boxShadow: "none", // no shadow
-        padding: "0.5rem 2rem",
+        padding: "0.5rem 1rem",
+     
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
@@ -23,7 +24,7 @@ export default function Navbar() {
             color: "black", // bold black text
           }}
         >
-          My Name
+          Portfolio
         </Typography>
 
         {/* Right Side Menu */}

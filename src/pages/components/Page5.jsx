@@ -30,7 +30,14 @@ export default function ContactSection() {
           Get in Touch with Me!
         </Typography>
 
-        <Grid container spacing={4} mt={2}>
+        <Grid
+          container
+          spacing={4}
+          mt={2}
+          alignItems="center"
+          justifyContent="center"
+          sx={{ minHeight: "80vh" }}
+        >
           {/* Left Side: Office Info */}
           <Grid item xs={12} md={4}>
             <Paper
@@ -74,16 +81,7 @@ export default function ContactSection() {
           </Grid>
 
           {/* Right Side: Contact Form */}
-
-          <Box
-            sx={{
-              minHeight: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: 4,
-            }}
-          >
+          <Grid item xs={12} md={8}>
             <Paper
               elevation={3}
               sx={{ maxWidth: 600, width: "100%", padding: 10 }}
@@ -136,7 +134,7 @@ export default function ContactSection() {
                 </Grid>
               </Box>
             </Paper>
-          </Box>
+          </Grid>
           <Box
             sx={{
               width: "100%",
@@ -146,7 +144,7 @@ export default function ContactSection() {
             }}
           >
             <Typography variant="body2">
-              © 2025 Kane. All Rights Reserved.
+              © 2025 AK. All Rights Reserved.
             </Typography>
           </Box>
         </Grid>

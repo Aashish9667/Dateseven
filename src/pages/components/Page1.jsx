@@ -1,28 +1,56 @@
 import * as React from "react";
-import { Card, Typography, Stack, Button, buttonBaseClasses } from "@mui/material";
-import { Padding } from "@mui/icons-material";
+
+import { Box, Typography, Paper } from "@mui/material";
 
 export default function HeroSection() {
   return (
-    <div>
-      <Card sx={{padding:"0.5rem 2rem" }}>
-        <Typography variant="h3"  sx={{justifyContent:"center", alignItems:"center"}}>I'am Aashish Kumar</Typography>
-        <Stack direction={"row"}spacing={"0"}>
-          <li>
-          {[" UI Designer", "Webflow Developer ", "Marketer"].map((item)=>(
-            <Button key={item} sx={{
-                  color:"red",
-                  border:"2 solid grey",
-                 
-                  
-                  
-                }}> {item}
+    <Box
+      sx={{
+        bgcolor: "#e6eaee", // light grey background
+        minHeight: "300px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "10px",
+        paddingTop:10
+        
+      }}
+    >
+      {/* Main Heading */}
+      <Typography
+        variant="h3"
+        sx={{
+          fontWeight: "bold",
+          mb: 2,
+        }}
+      >
+        I'M{" "}
+        <span
+          style={{
+            fontWeight: "normal",
+            WebkitTextStroke: "1px black",
+            color: "transparent",
+          }}
+        >
+          AASHISH
+        </span>{" "}
+        KUMAR
+      </Typography>
 
-            </Button>
-          ))}</li>
-
-        </Stack>
-      </Card>
-    </div>
+      {/* Subtitle Label */}
+      <Paper
+        elevation={1}
+        sx={{
+          px: 3,
+          py: 1,
+          bgcolor: "#f8f8f8"
+        }}
+      >
+        <Typography variant="body2" color="text.secondary">
+          • UI Designer • Webflow Developer • Marketer
+        </Typography>
+      </Paper>
+    </Box>
   );
 }
