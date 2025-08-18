@@ -14,6 +14,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SendIcon from "@mui/icons-material/Send";
 
+
 export default function ContactSection() {
   return (
     <Box sx={{ backgroundColor: "#fff" }}>
@@ -138,12 +139,12 @@ export default function ContactSection() {
           <Box
             sx={{
               width: "100%",
-              textAlign: "center", // Center the text
+             
               padding: "1rem 0",
               backgroundColor: "#f5f5f5", // Optional: light gray background
             }}
           >
-            <Typography variant="body2">
+            <Typography variant="body2" sx={{textAlign:"center"}}>
               © 2025 AK. All Rights Reserved.
             </Typography>
           </Box>
