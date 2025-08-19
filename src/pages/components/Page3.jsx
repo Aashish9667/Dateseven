@@ -1,3 +1,4 @@
+
 import { Grid, Box, Typography, Paper, Divider, Chip } from "@mui/material";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 
@@ -39,9 +40,10 @@ const educationData = [
 
 function ResumeBlock({ data }) {
   return (
+   
     <Paper elevation={0} sx={{ p: 3, border: "1px solid #e0e0e0" }}>
       {data.map((item, index) => (
-        <Box key={index}>
+        <Box key={index} >
           <Box display="flex" alignItems="center" gap={2} mb={0.5}>
             <WorkOutlineIcon color="disabled" fontSize="small" />
             <Chip
@@ -51,14 +53,17 @@ function ResumeBlock({ data }) {
               sx={{ fontSize: "0.7rem" }}
             />
           </Box>
+          
           <Typography fontWeight="bold">{item.title}</Typography>
           <Typography variant="body2" color="text.secondary" mb={1.5}>
             {item.subtitle}
           </Typography>
           {index !== data.length - 1 && <Divider sx={{ mb: 1.5 }} />}
+          
         </Box>
       ))}
     </Paper>
+    
   );
 }
 
@@ -73,15 +78,31 @@ export default function ResumeSection() {
       >
         EXPERIENCE
       </Typography>
-      <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+      <Typography variant="h4" align="center" fontWeight="bold" gutterBottom sx={{marginBottom:"40px"}}>
         Professional Resume
       </Typography>
 
       <Grid container spacing={4} justifyContent="center" mt={2}>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={5} sx={{
+              maxWidth: 300,
+              flex: "1 1 250px",
+              transition: "0.3s",
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: 6,
+              },
+            }}>
           <ResumeBlock data={experienceData} />
         </Grid>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={5} sx={{
+              maxWidth: 300,
+              flex: "1 1 250px",
+              transition: "0.3s",
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: 6,
+              },
+            }}>
           <ResumeBlock data={educationData} />
         </Grid>
       </Grid>

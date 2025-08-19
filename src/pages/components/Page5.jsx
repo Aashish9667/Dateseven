@@ -14,19 +14,18 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SendIcon from "@mui/icons-material/Send";
 
-
 export default function ContactSection() {
   return (
     <Box sx={{ backgroundColor: "#fff" }}>
       <Container>
-        <Typography variant="overline" textAlign="center" display="block">
+        <Typography variant="overline" textAlign="center" display="block" sx={{marginTop:"20px",marginBottom:"10px"}}>
           CONTACT
         </Typography>
         <Typography
           variant="h4"
           textAlign="center"
           fontWeight="bold"
-          gutterBottom
+        
         >
           Get in Touch with Me!
         </Typography>
@@ -34,7 +33,7 @@ export default function ContactSection() {
         <Grid
           container
           spacing={4}
-          mt={2}
+       
           alignItems="center"
           justifyContent="center"
           sx={{ minHeight: "80vh" }}
@@ -139,14 +138,16 @@ export default function ContactSection() {
           <Box
             sx={{
               width: "100%",
-             
+              textAlign: "center", // Center the text
               padding: "1rem 0",
-              backgroundColor: "#f5f5f5", // Optional: light gray background
+             // Optional: light gray background
             }}
           >
-            <Typography variant="body2" sx={{textAlign:"center"}}>
+          
+            <Typography variant="body2" sx={{marginBottom:"0 auto"}}>
               © 2025 AK. All Rights Reserved.
             </Typography>
+           
           </Box>
         </Grid>
       </Container>

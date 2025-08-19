@@ -7,7 +7,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Button, Grid, Typography, Box } from "@mui/material";
 
-export default function Page2() {
+export default function Page3() {
   const leftColumn = ["Logo Design", "Branding Identity", "Web Design"];
   const rightColumn = [
     "Social Marketing",
@@ -16,26 +16,33 @@ export default function Page2() {
   ];
 
   return (
-    <Box sx={{ p: 5,marginTop:"70px"}}>
+    <Box sx={{marginTop :"0px"}}>
       <Grid container spacing={5} alignItems="center" justifyContent="center">
         {/* Left Side */}
         <Grid item xs={12} md={5}>
           <Box
             sx={{
-              border: "2px solid  #d3d3d3",
+              border: "1px solid rgba(0, 0, 0, 0.05)",
               p: 4,
               borderRadius: "20px",
               textAlign: "center",
-               boxShadow: "5px 5px 15px rgba(0,0,0,0.3)",
+              
             }}
           >
             <img
-              src="/Image.png"
+              src="/image.jpg"
               alt="profile"
-              style={{ display:"block",margin:"0 auto",borderRadius: "20px", width: "100%", maxWidth: "300px",   boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
+              style={{
+                display: "block",
+                margin: "365.5 365.5 0",
+                borderRadius: "20px",
+                width: "100%",
+                maxWidth: "300px",
+                
+              }}
             />
             <Typography variant="h4" sx={{ mt: 3 }}>
-              Nobita Nobi
+              AASHISH KUMAR
             </Typography>
 
             <Box sx={{ mt: 2 }}>
@@ -91,7 +98,7 @@ export default function Page2() {
               textAlign: { xs: "center", md: "left" },
             }}
           >
-            Hello, I’m Nobita Nobi, <br />
+            Hello, I’m AASHISH KUMAR, <br />
             <span style={{ border: "2px solid #d3d3d3", padding: "5px" }}>
               Framer Developer
             </span>{" "}
@@ -100,9 +107,8 @@ export default function Page2() {
 
           <Box sx={{ mb: 4, textAlign: { xs: "center", md: "left" } }}>
             <a
-              href="https://zety.com/lp/cv-maker-in?utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=make%20curriculum%20vitae&network=o&device=c&adposition=&adgroupid=1188573810428479&placement=&utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=make%20curriculum%20vitae&network=o&device=c&adposition=&adgroupid=1188573810428479&placement=&msclkid=4d4437b94435168bf0145f2601178b38" // अपना link यहाँ दो
-              target="_blank" // new site of cv on server
-              rel="noopener noreferrer" // security best practice
+            href="/resume.pdf"
+             download
               style={{ textDecoration: "none" }}
             >
               <Button

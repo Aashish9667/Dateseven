@@ -3,78 +3,89 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import CardActionArea from "@mui/material/CardActionArea";
-
-const cards = [
-  {
-    id: 1,
-    title: "Brand Identity Design",
-    description:
-      "Kane gives you the blocks & kits you need to create a true website within minutes.",
-  },
-  {
-    id: 2,
-    title: "Website Design",
-    description:
-      "Kane gives you the blocks & kits you need to create a true website within minutes.",
-  },
-  {
-    id: 3,
-    title: "Application Design",
-    description:
-      "Kane gives you the blocks & kits you need to create a true website within minutes.",
-  },
-];
+import LanguageIcon from "@mui/icons-material/Language";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
+import DesignServicesIcon from "@mui/icons-material/DesignServices";
 
 function SelectActionCard() {
+  const services = [
+    {
+      icon: <LanguageIcon fontSize="large" />,
+      title: "Brand Identity Design",
+      desc: "Kane gives you the blocks & kits you need to create a true website within minutes.",
+    },
+    {
+      icon: <ColorLensIcon fontSize="large" />,
+      title: "Website Design",
+      desc: "Kane gives you the blocks & kits you need to create a true website within minutes.",
+    },
+    {
+      icon: <DesignServicesIcon fontSize="large" />,
+      title: "Application Design",
+      desc: "Kane gives you the blocks & kits you need to create a true website within minutes.",
+    },
+  ];
+
   return (
-    <div>
-      <h6
-        style={{
-          textAlign: "center",
-          marginTop: 50,
-        }}
-      >
-        Services
-      </h6>
-      <h3
-        style={{
-          textAlign: "center",
-        }}
-      >
+    
+    <Box sx={{ textAlign: "center", my: 4 ,}}>
+      <Typography variant="overline" gutterBottom sx={{marginTop:"100px"}}>
+        SERVICES
+      </Typography>
+      <Typography variant="h4" gutterBottom sx={{marginBottom:"40px" ,fontWeight:"bold"}}>
         Quality Services
-      </h3>
+      </Typography>
 
       <Box
         sx={{
-          width: "100%",
           display: "flex",
-          gridTemplateColumns:
-            "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
-          gap: 2,
-          mb: 6,
+          justifyContent: "center",
+          alignItems: "stretch",
+          gap: 7,
+          flexWrap: "wrap",
+         marginBottom:"100px"
         }}
       >
-        {cards.map((card) => (
+        {services.map((service, index) => (
           <Card
+            key={index}
             sx={{
-              height: "100%",
-
-              backgroundColor: "#e6eaee",
+              maxWidth: 300,
+              flex: "1 1 250px",
+              transition: "0.3s",
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: 6,
+              },
             }}
           >
-            <CardContent sx={{ height: "100%" }}>
-              <Typography variant="h5" component="div">
-                {card.title}
+            <CardContent sx={{ background: "#e6eaee", textAlign: "center" }}>
+              <Box
+                sx={{
+                  mb: 1,
+                  "& svg": {
+                    fontSize: 40,
+                    transition: "0.3s",
+                  },
+                  "& svg:hover": {
+                    color: "black",
+                  },
+                }}
+              >
+                {service.icon}
+              </Box>
+              <Typography variant="h6" gutterBottom>
+                {service.title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {card.description}
+                {service.desc}
               </Typography>
             </CardContent>
           </Card>
         ))}
       </Box>
-    </div>
+    </Box>
+    
   );
 }
 

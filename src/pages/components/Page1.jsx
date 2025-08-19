@@ -13,8 +13,10 @@ export default function HeroSection() {
         justifyContent: "center",
         alignItems: "center",
         borderRadius: "10px",
-        paddingTop:10
-        
+        marginTop: "150px",
+        marginBottom: "100px",
+        marginLeft: "200px",
+        marginRight: "200px",
       }}
     >
       {/* Main Heading */}
@@ -44,10 +46,23 @@ export default function HeroSection() {
         sx={{
           px: 3,
           py: 1,
-          bgcolor: "#f8f8f8"
+          bgcolor: "#f8f8f8",
+          transition: "0.3s",
+          "&:hover": {
+            transform: "translateY(-5px)",
+            boxShadow: 6,
+          },
+          "&:hover .hoverText": {
+            fontSize: "1.2rem", // text size increase on hover
+          },
         }}
       >
-        <Typography variant="body2" color="text.secondary">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          className="hoverText"
+          sx={{ transition: "all 0.3s ease" }} // smooth animation
+        >
           • UI Designer • Webflow Developer • Marketer
         </Typography>
       </Paper>
