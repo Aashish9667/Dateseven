@@ -100,9 +100,9 @@ export default function Page3() {
           >
             Hello, I’m AASHISH KUMAR, <br />
             <span style={{ border: "2px solid #d3d3d3", padding: "5px" }}>
-              Framer Developer
+              Web Developer
             </span>{" "}
-            and <br /> UX / UI Designer Based <br /> in Tokyo, Japan.
+            and <br /> UX / UI Designer Based <br /> in New Delhi, India.
           </Typography>
 
           <Box sx={{ mb: 4, textAlign: { xs: "center", md: "left" } }}>
