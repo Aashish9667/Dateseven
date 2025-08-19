@@ -62,7 +62,7 @@ export default function Navbar() {
             Portfolio
           </Typography>
 
-          {/* ✅ Right Menu (Desktop) */}
+          {/*  Right Menu (Desktop) */}
           <Stack
             direction="row"
             spacing={3}
@@ -89,7 +89,7 @@ export default function Navbar() {
             ))}
           </Stack>
 
-          {/* ✅ Hamburger Menu (Mobile) */}
+          {/*  Hamburger Menu (Mobile) */}
           <IconButton
             edge="end"
             color="inherit"
@@ -101,7 +101,7 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
 
-      {/* ✅ Drawer for Mobile */}
+      {/* Drawer for Mobile */}
       <Drawer anchor="right" open={open} onClose={handleDrawerToggle}>
         <List sx={{ width: 220 }}>
           {menuItems.map((item) => (

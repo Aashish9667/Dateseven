@@ -16,7 +16,7 @@ export default function HeroSection() {
         my: { xs: 5, md: 12 }, // responsive margin (y-axis)
         textAlign: "center", // mobile में center align
         p: { xs: 2, md: 4 }, // padding adjust
-        marginTop:"130px"
+         mt: { xs: 10, md: 15 }
       }}
     >
       {/* Main Heading */}
