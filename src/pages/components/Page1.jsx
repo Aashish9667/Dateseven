@@ -6,7 +6,7 @@ export default function HeroSection() {
     <Box
       sx={{
         bgcolor: "#e6eaee",
-        minHeight: { xs: "250px", md: "300px" }, // mobile छोटा height
+        minHeight: { xs: "250px", md: "300px" }, // mobile small height
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -16,7 +16,7 @@ export default function HeroSection() {
         my: { xs: 5, md: 12 }, // responsive margin (y-axis)
         textAlign: "center", // mobile में center align
         p: { xs: 2, md: 4 }, // padding adjust
-        marginTop:"100px"
+        marginTop:"130px"
       }}
     >
       {/* Main Heading */}

@@ -25,6 +25,7 @@ export default function ContactSection() {
           variant="h4"
           textAlign="center"
           fontWeight="bold"
+        sx={{marginBottom:"50px"}}
         
         >
           Get in Touch with Me!
