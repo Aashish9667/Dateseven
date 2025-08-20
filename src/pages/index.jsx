@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <Page1 />
       <section id="about">
       <Page6 />
       </section>

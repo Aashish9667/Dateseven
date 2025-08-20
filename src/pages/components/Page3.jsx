@@ -69,7 +69,7 @@ function ResumeBlock({ data }) {
 
 export default function ResumeSection() {
   return (
-    <Box sx={{ backgroundColor: "#f5f7fa", py: 6 }}>
+    <Box sx={{ backgroundColor: "#f5f7fa", py: 4 }}>
       <Typography
         variant="overline"
         align="center"
@@ -78,7 +78,7 @@ export default function ResumeSection() {
       >
         EXPERIENCE
       </Typography>
-      <Typography variant="h4" align="center" fontWeight="bold" gutterBottom sx={{marginBottom:"40px"}}>
+      <Typography variant="h5" align="center" fontWeight="bold" gutterBottom sx={{marginBottom:"20px"}}>
         Professional Resume
       </Typography>
 

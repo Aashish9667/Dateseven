@@ -28,11 +28,11 @@ function SelectActionCard() {
 
   return (
     
-    <Box sx={{ textAlign: "center", my: 4 ,}}>
-      <Typography variant="overline" gutterBottom sx={{marginTop:"100px"}}>
+    <Box sx={{ textAlign: "center",my:2.5}}>
+      <Typography variant="overline" gutterBottom>
         SERVICES
       </Typography>
-      <Typography variant="h4" gutterBottom sx={{marginBottom:"40px" ,fontWeight:"bold"}}>
+      <Typography variant="h5" gutterBottom sx={{marginBottom:"20px" ,fontWeight:"bold"}}>
         Quality Services
       </Typography>
 
@@ -43,7 +43,7 @@ function SelectActionCard() {
           alignItems: "stretch",
           gap: 7,
           flexWrap: "wrap",
-         marginBottom:"100px"
+         marginBottom:"40px"
         }}
       >
         {services.map((service, index) => (

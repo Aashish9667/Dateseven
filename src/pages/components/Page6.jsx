@@ -16,13 +16,16 @@ export default function Page3() {
   ];
 
   return (
-    <Box sx={{ marginTop: "0px" }}>
+    <Box sx={{ marginTop: { xs: "80px", md: "110px" } }}>
       <Grid container spacing={5} alignItems="center" justifyContent="center">
         {/* Left Side */}
         <Grid item xs={12} md={5}>
           <Box
             sx={{
-              border: "1px solid rgba(0, 0, 0, 0.05)",
+              border: {
+                xs: "none", // mobile
+                md: "1px solid rgba(0, 0, 0, 0.05)", // desktop and tablets
+              },
               p: 4,
               borderRadius: "20px",
               textAlign: "center",
@@ -33,24 +36,31 @@ export default function Page3() {
               alt="profile"
               style={{
                 display: "block",
-                margin: "365.5 365.5 0",
+
                 borderRadius: "20px",
                 width: "100%",
                 maxWidth: "300px",
               }}
             />
-            <Typography variant="h4" sx={{ mt: 3 }}>
+            <Typography
+              variant="h4"
+              sx={{
+                mt: { xs: "10px", md: 3 },
+                fontSize: "clamp(1.5rem, 4vw, 2rem)",
+              }}
+            >
               AASHISH KUMAR
             </Typography>
 
-            <Box sx={{ mt: 2 }}>
+            <Box sx={{ mt: { xs: "2px", md: 3 } }}>
               <span
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "clamp(0rem, 4vw, 1.3rem)",
                   border: "2px solid  #d3d3d3",
                   borderRadius: "50px",
-                  display: "inline-block",
-                  padding: "10px 20px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  padding: "5px 10px",
                   color: "grey",
                 }}
               >
@@ -63,7 +73,7 @@ export default function Page3() {
                     borderRadius: "50%",
                     display: "inline-block",
                     animation: "blink 2s infinite",
-                    marginLeft: "10px",
+                    marginLeft: "5px",
                   }}
                 ></span>
               </span>
@@ -75,9 +85,7 @@ export default function Page3() {
               </style>
             </Box>
 
-            <Box
-              sx={{ mt: 3, display: "flex", justifyContent: "center", gap: 3 }}
-            >
+            <Box sx={{ display: "flex", justifyContent: "center", gap: 3 }}>
               <FacebookIcon sx={iconStyle("#1877F2")} />
               <InstagramIcon sx={iconStyle("#E4405F")} />
               <TwitterIcon sx={iconStyle("#1DA1F2")} />
@@ -87,13 +95,14 @@ export default function Page3() {
         </Grid>
 
         {/* Right Side */}
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={7} sx={{mt: { xs: "0 auto", md: "10px" },}}>
           <Typography
             sx={{
               fontSize: { xs: "20px", sm: "30px", md: "55px" }, // ✅ Responsive font size
               lineHeight: { xs: "28px", sm: "40px", md: "72px" }, // ✅ Responsive line height
-              mb: 3,
-              textAlign: "left", // ✅ Always left aligned
+              mt: { xs: "-39px", md: "10px" },
+              mb: { xs: "10px", md: 3 },
+              textAlign: { xs: "center", md: "left" },
             }}
           >
             Hello, I’m AASHISH KUMAR, <br />
@@ -147,11 +156,14 @@ export default function Page3() {
 
 const iconStyle = (hoverColor) => ({
   border: "2px solid grey",
-  padding: "5px",
+  padding: "2px",
   fontSize: "60px",
   color: "grey",
   cursor: "pointer",
   transition: "all 0.3s ease",
+  fontSize: "clamp(2rem, 4vw, 3rem)",
+  mt: { xs: "10px", md: 3 },
+  mb: { xs: "-20px", md: 3 },
   "&:hover": {
     color: hoverColor,
   },

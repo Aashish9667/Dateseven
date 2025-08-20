@@ -18,15 +18,19 @@ export default function ContactSection() {
   return (
     <Box sx={{ backgroundColor: "#fff" }}>
       <Container>
-        <Typography variant="overline" textAlign="center" display="block" sx={{marginTop:"20px",marginBottom:"10px"}}>
+        <Typography
+          variant="overline"
+          textAlign="center"
+          display="block"
+          sx={{ marginTop: "20px", marginBottom: "5px" }}
+        >
           CONTACT
         </Typography>
         <Typography
-          variant="h4"
+          variant="h5"
           textAlign="center"
           fontWeight="bold"
-        sx={{marginBottom:"50px"}}
-        
+          sx={{ marginBottom: "20px" }}
         >
           Get in Touch with Me!
         </Typography>
@@ -34,7 +38,6 @@ export default function ContactSection() {
         <Grid
           container
           spacing={4}
-       
           alignItems="center"
           justifyContent="center"
           sx={{ minHeight: "80vh" }}
@@ -54,9 +57,7 @@ export default function ContactSection() {
                   <LocationOnIcon />
                   <Box>
                     <Typography fontWeight={600}>Our Office:</Typography>
-                    <Typography variant="body2">
-                      Jurain, Dhaka Bangladesh
-                    </Typography>
+                    <Typography variant="body2">New Delhi, India</Typography>
                   </Box>
                 </Stack>
 
@@ -141,14 +142,12 @@ export default function ContactSection() {
               width: "100%",
               textAlign: "center", // Center the text
               padding: "1rem 0",
-             // Optional: light gray background
+              // Optional: light gray background
             }}
           >
-          
-            <Typography variant="body2" sx={{marginBottom:"0 auto"}}>
+            <Typography variant="body2" sx={{ marginBottom: "0 auto" }}>
               © 2025 AK. All Rights Reserved.
             </Typography>
-           
           </Box>
         </Grid>
       </Container>

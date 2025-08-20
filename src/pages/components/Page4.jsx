@@ -54,17 +54,17 @@ export default function PricingSection() {
   ];
 
   return (
-    <Box sx={{ backgroundColor: "white", py: 8 }}>
+    <Box sx={{ backgroundColor: "white", py: 3 }}>
       <Container>
         <Typography variant="overline" textAlign="center" display="block">
           PRICING
         </Typography>
         <Typography
-          variant="h4"
+          variant="h5"
           textAlign="center"
           fontWeight="bold"
           gutterBottom
-          sx={{ marginBottom: "40px" }}
+          sx={{ marginBottom: "20px" }}
         >
           Flexible Pricing Plan
         </Typography>
