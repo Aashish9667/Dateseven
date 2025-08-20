@@ -16,7 +16,7 @@ export default function Page3() {
   ];
 
   return (
-    <Box sx={{marginTop :"0px"}}>
+    <Box sx={{ marginTop: "0px" }}>
       <Grid container spacing={5} alignItems="center" justifyContent="center">
         {/* Left Side */}
         <Grid item xs={12} md={5}>
@@ -26,7 +26,6 @@ export default function Page3() {
               p: 4,
               borderRadius: "20px",
               textAlign: "center",
-              
             }}
           >
             <img
@@ -38,7 +37,6 @@ export default function Page3() {
                 borderRadius: "20px",
                 width: "100%",
                 maxWidth: "300px",
-                
               }}
             />
             <Typography variant="h4" sx={{ mt: 3 }}>
@@ -92,10 +90,10 @@ export default function Page3() {
         <Grid item xs={12} md={7}>
           <Typography
             sx={{
-              fontSize: "55px",
-              lineHeight: "72px",
+              fontSize: { xs: "20px", sm: "30px", md: "55px" }, // ✅ Responsive font size
+              lineHeight: { xs: "28px", sm: "40px", md: "72px" }, // ✅ Responsive line height
               mb: 3,
-              textAlign: { xs: "center", md: "left" },
+              textAlign: "left", // ✅ Always left aligned
             }}
           >
             Hello, I’m AASHISH KUMAR, <br />
@@ -106,11 +104,7 @@ export default function Page3() {
           </Typography>
 
           <Box sx={{ mb: 4, textAlign: { xs: "center", md: "left" } }}>
-            <a
-            href="/resume.pdf"
-             download
-              style={{ textDecoration: "none" }}
-            >
+            <a href="/resume.pdf" download style={{ textDecoration: "none" }}>
               <Button
                 sx={{
                   border: "2px solid #d3d3d3",

@@ -12,12 +12,21 @@ export default function Home() {
     <div>
       <Navbar />
       <Page1 />
+      <section id="about">
       <Page6 />
-
+      </section>
+ <section id="service">
       <Page2 />
+      </section>
+       
       <Page3 />
+      
+      <section id="project">
       <Page4 />
+      </section>
+       <section id="contact">
       <Page5 />
+      </section>
     </div>
   );
 }

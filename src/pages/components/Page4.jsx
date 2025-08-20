@@ -18,10 +18,10 @@ export default function PricingSection() {
     {
       plan: "Basic",
       price: "15",
-      subtitle: "Have design ready to build? or small budget",
+      subtitle: "Not have any design? Leave it for me",
       features: [
         "Need your wireframe",
-        "Design with Figma, Framer",
+        "Design with Figma",
         "Product Design",
         "Digital Marketing",
         "Custom Support",
@@ -40,8 +40,8 @@ export default function PricingSection() {
       ],
     },
     {
-      plan: "Standard",
-      price: "59",
+      plan: "Premium",
+      price: "69",
       subtitle: "Not have any design? Leave its for me",
       features: [
         "Website Design",
@@ -64,14 +64,28 @@ export default function PricingSection() {
           textAlign="center"
           fontWeight="bold"
           gutterBottom
-          sx={{marginBottom:"40px"}}
+          sx={{ marginBottom: "40px" }}
         >
           Flexible Pricing Plan
         </Typography>
 
-        <Grid container spacing={4} mt={2} justifyContent="center">
+        <Grid
+          container
+          spacing={4}
+          mt={2}
+          justifyContent="center"
+          alignItems="stretch"
+          sx={{ display: "flex", flexWrap: "wrap" }}
+        >
           {pricingData.map((plan, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              key={index}
+              sx={{ display: "flex" }}
+            >
               <Card
                 sx={{
                   p: 3,
@@ -79,6 +93,11 @@ export default function PricingSection() {
                   backgroundColor: "#f5f7fa",
                   boxShadow: "none",
                   border: "1px solid #dfe3e8",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  flex: 1,
+                  minHeight: 400,
                 }}
               >
                 <Typography variant="h6" fontWeight={600}>
@@ -92,7 +111,7 @@ export default function PricingSection() {
                   <span style={{ fontSize: 14 }}>/Hour</span>
                 </Typography>
 
-                <List dense>
+                <List dense sx={{ flexGrow: 1 }}>
                   {plan.features.map((feature, i) => (
                     <ListItem key={i} disablePadding>
                       <ListItemIcon>
@@ -103,7 +122,7 @@ export default function PricingSection() {
                   ))}
                 </List>
 
-                <Box textAlign="center" mt={2}>
+                <Box textAlign="center" mt="auto">
                   <Button
                     variant="contained"
                     color="inherit"
@@ -114,7 +133,6 @@ export default function PricingSection() {
                       "&:hover": {
                         bgcolor: "#fff", // background white
                         color: "#000", // text black
-                        
                       },
                     }}
                   >

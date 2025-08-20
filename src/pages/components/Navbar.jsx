@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link"; // ✅ Added for navigation
 import {
   Toolbar,
   useScrollTrigger,
@@ -26,17 +27,21 @@ export default function Navbar() {
     setOpen(!open);
   };
 
-  const menuItems = [
-    "Home",
-    "About",
-    "Resume",
-    "Services",
-    "Projects",
-    "Contact",
-  ];
+  const menuItems = ["Home", "About", "Resume", "Services", "Projects", "Contact"];
+
+  // ✅ Added routes map for navigation
+  const routes = {
+    Home: "/",
+    About: "/#about",
+    Resume: "/components/Resume",
+    Services: "/#service",
+    Projects: "/#project",
+    Contact: "/#contact",
+  };
 
   return (
     <>
+      {/* AppBar */}
       <AppBar
         position="fixed"
         sx={{
@@ -49,7 +54,7 @@ export default function Navbar() {
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          {/* Left Brand */}
+          {/* Brand */}
           <Typography
             variant="h6"
             sx={{
@@ -62,34 +67,35 @@ export default function Navbar() {
             Portfolio
           </Typography>
 
-          {/*  Right Menu (Desktop) */}
+          {/* Desktop Menu */}
           <Stack
             direction="row"
             spacing={3}
-            sx={{ display: { xs: "none", md: "flex" } }} // ✅ mobile me hide
+            sx={{ display: { xs: "none", md: "flex" } }}
           >
             {menuItems.map((item) => (
-              <Button
-                key={item}
-                sx={{
-                  color: "black",
-                  fontSize: trigger ? "0.9rem" : "1rem",
-                  fontWeight: 500,
-                  textTransform: "none",
-                  "&:hover": {
-                    textDecoration: "underline",
-                    textDecorationThickness: "2px",
-                    textUnderlineOffset: "4px",
-                  },
-                  transition: "all 300ms ease",
-                }}
-              >
-                {item}
-              </Button>
+              <Link key={item} href={routes[item]} passHref>
+                <Button
+                  sx={{
+                    color: "black",
+                    fontSize: trigger ? "0.9rem" : "1rem",
+                    fontWeight: 500,
+                    textTransform: "none",
+                    "&:hover": {
+                      textDecoration: "underline",
+                      textDecorationThickness: "2px",
+                      textUnderlineOffset: "4px",
+                    },
+                    transition: "all 300ms ease",
+                  }}
+                >
+                  {item}
+                </Button>
+              </Link>
             ))}
           </Stack>
 
-          {/*  Hamburger Menu (Mobile) */}
+          {/* Mobile Hamburger */}
           <IconButton
             edge="end"
             color="inherit"
@@ -101,25 +107,27 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
 
-      {/* Drawer for Mobile */}
+      {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={handleDrawerToggle}>
         <List sx={{ width: 220 }}>
           {menuItems.map((item) => (
             <ListItem
               button
               key={item}
-              onClick={handleDrawerToggle}
-              sx={{
-                "&:hover": { backgroundColor: "#f0f0f0" },
-              }}
+              onClick={handleDrawerToggle} // Drawer close
+              sx={{ "&:hover": { backgroundColor: "#f0f0f0" } }}
             >
-              <ListItemText
-                primary={item}
-                primaryTypographyProps={{
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                }}
-              />
+              {/* ✅ Added Link for navigation */}
+              <Link href={routes[item]} passHref>
+                <ListItemText
+                  primary={item}
+                  primaryTypographyProps={{
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                    component: "a", // anchor link
+                  }}
+                />
+              </Link>
             </ListItem>
           ))}
         </List>
