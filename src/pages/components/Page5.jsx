@@ -98,16 +98,16 @@ export default function ContactSection() {
 
               <Box component="form" noValidate autoComplete="off">
                 <Grid container spacing={2} mt={1}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Full Name" variant="outlined" />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Email" variant="outlined" />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Subject" variant="outlined" />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Message" variant="outlined" />
                   </Grid>
                   <Grid item xs={12}>

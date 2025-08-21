@@ -59,7 +59,7 @@ function SelectActionCard() {
               },
             }}
           >
-            <CardContent sx={{ background: "#e6eaee", textAlign: "center" }}>
+            <CardContent sx={{ background: "#e6eaee", textAlign: "left" }}>
               <Box
                 sx={{
                   mb: 1,
@@ -74,10 +74,10 @@ function SelectActionCard() {
               >
                 {service.icon}
               </Box>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom  sx={{textAlign:{xs:'left',md:'left'},}}>
                 {service.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary"  sx={{textAlign:{xs:'left',md:'left'},}}>
                 {service.desc}
               </Typography>
             </CardContent>
