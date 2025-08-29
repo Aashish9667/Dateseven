@@ -27,7 +27,14 @@ export default function Navbar() {
     setOpen(!open);
   };
 
-  const menuItems = ["Home", "About", "Resume", "Services", "Projects", "Contact"];
+  const menuItems = [
+    "Home",
+    "About",
+    "Resume",
+    "Services",
+    "Projects",
+    "Contact",
+  ];
 
   // ✅ Added routes map for navigation
   const routes = {
@@ -118,15 +125,19 @@ export default function Navbar() {
               sx={{ "&:hover": { backgroundColor: "#f0f0f0" } }}
             >
               {/* ✅ Added Link for navigation */}
-              <Link href={routes[item]} passHref>
-                <ListItemText
-                  primary={item}
-                  primaryTypographyProps={{
-                    fontSize: "1rem",
-                    fontWeight: 500,
-                    component: "a", // anchor link
-                  }}
-                />
+              <Link
+                href={routes[item]}
+                passHref
+                style={{ textDecoration: "none" }}
+              >
+                <Typography
+                  fontSize="1rem"
+                  fontWeight={500}
+                  color="black"
+                  sx={{ textDecoration: "none" }}
+                >
+                  {item}
+                </Typography>
               </Link>
             </ListItem>
           ))}

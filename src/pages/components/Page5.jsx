@@ -86,7 +86,7 @@ export default function ContactSection() {
           <Grid item xs={12} md={8}>
             <Paper
               elevation={3}
-              sx={{ maxWidth: 600, width: "100%", padding: 10 }}
+              sx={{ maxWidth: 600, width: "100%",  padding: { xs: 2, sm: 4, md: 6, lg: 10 },}}
             >
               <Typography variant="h4" align="center" gutterBottom>
                 Contact Us

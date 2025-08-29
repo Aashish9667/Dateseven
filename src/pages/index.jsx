@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import Page1 from "./components/Page1";
 import Page2 from "./components/Page2";
 import Page3 from "./components/Page3";
 import Page4 from "./components/Page4";
@@ -12,19 +11,19 @@ export default function Home() {
     <div>
       <Navbar />
       <section id="about">
-      <Page6 />
+        <Page6 />
       </section>
- <section id="service">
-      <Page2 />
+      <section id="service">
+        <Page2 />
       </section>
-       
+
       <Page3 />
-      
+
       <section id="project">
-      <Page4 />
+        <Page4 />
       </section>
-       <section id="contact">
-      <Page5 />
+      <section id="contact">
+        <Page5 />
       </section>
     </div>
   );
