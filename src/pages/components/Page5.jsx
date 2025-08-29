@@ -86,7 +86,13 @@ export default function ContactSection() {
           <Grid item xs={12} md={8}>
             <Paper
               elevation={3}
-              sx={{ maxWidth: 600, width: "100%",  padding: { xs: 2, sm: 4, md: 6, lg: 10 },}}
+              sx={{
+                width: "100%", // ✅ full width on mobile
+                maxWidth: { xs: "100%", md: 600 }, // ✅ mobile = full, desktop = 600px
+                mx: "auto", // ✅ center align
+                px: { xs: 2, sm: 4, }, // ✅ horizontal padding balanced
+                py: { xs: 3, sm: 4,  }, // ✅ vertical padding
+              }}
             >
               <Typography variant="h4" align="center" gutterBottom>
                 Contact Us
@@ -96,18 +102,18 @@ export default function ContactSection() {
                 We'd love to hear from you. Please fill out the form below.
               </Typography>
 
-              <Box component="form" noValidate autoComplete="off">
+               <Box component="form" noValidate autoComplete="off" sx={{ width: "100%" }}>
                 <Grid container spacing={2} mt={1}>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <TextField fullWidth label="Full Name" variant="outlined" />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <TextField fullWidth label="Email" variant="outlined" />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <TextField fullWidth label="Subject" variant="outlined" />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <TextField fullWidth label="Message" variant="outlined" />
                   </Grid>
                   <Grid item xs={12}>

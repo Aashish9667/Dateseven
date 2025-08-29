@@ -97,7 +97,7 @@ export default function PricingSection() {
                   flexDirection: "column",
                   height: "100%",
                   flex: 1,
-                  minHeight: 400,
+                  minHeight: 200,
                 }}
               >
                 <Typography variant="h6" fontWeight={600}>
@@ -122,23 +122,7 @@ export default function PricingSection() {
                   ))}
                 </List>
 
-                <Box textAlign="center" mt="auto">
-                  <Button
-                    variant="contained"
-                    color="inherit"
-                    sx={{
-                      bgcolor: "#000",
-                      color: "#fff",
-                      borderRadius: 0,
-                      "&:hover": {
-                        bgcolor: "#fff", // background white
-                        color: "#000", // text black
-                      },
-                    }}
-                  >
-                    Order Now
-                  </Button>
-                </Box>
+               
               </Card>
             </Grid>
           ))}

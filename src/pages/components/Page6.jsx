@@ -99,9 +99,9 @@ export default function Page3() {
           <Typography
             sx={{
               fontSize: { xs: "20px", sm: "30px", md: "55px" }, // ✅ Responsive font size
-              lineHeight: { xs: "28px", sm: "40px", md: "72px" }, // ✅ Responsive line height
+              lineHeight: { xs: "36px", sm: "48px", md: "72px" }, // ✅ Responsive line height
               mt: { xs: "-39px", md: "10px" },
-              mb: { xs: "10px", md: 3 },
+              mb: { xs: "10px", md: "10px" },
               textAlign: { xs: "center", md: "left" },
             }}
           >
@@ -112,7 +112,7 @@ export default function Page3() {
             and <br /> UX / UI Designer Based <br /> in New Delhi, India.
           </Typography>
 
-          <Box sx={{ mb: 4, textAlign: { xs: "center", md: "left" } }}>
+          <Box sx={{ mt:{xs:"22px",md:"10px"},mb:{xs:"30px",md:"20px"}, textAlign: { xs: "center", md: "left" } }}>
             <a href="/resume.pdf" download style={{ textDecoration: "none" }}>
               <Button
                 sx={{
