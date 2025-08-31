@@ -7,13 +7,16 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText,
+  
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Navbar() {
   const trigger = useScrollTrigger({
@@ -45,6 +48,12 @@ export default function Navbar() {
     Projects: "/#project",
     Contact: "/#contact",
   };
+    React.useEffect(() => {
+    AOS.init({
+      duration: 800, // animation time
+      once: true,    // animation केवल 1 बार चलेगा
+    });
+  }, []);
 
   return (
     <>
@@ -59,6 +68,7 @@ export default function Navbar() {
           padding: trigger ? "0.3rem 2rem" : "1rem 2rem",
           transition: "all 400ms ease",
         }}
+        data-aos="fade-down"
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           {/* Brand */}
@@ -70,6 +80,7 @@ export default function Navbar() {
               fontSize: trigger ? "1.1rem" : "1.4rem",
               transition: "all 400ms ease",
             }}
+            data-aos="zoom-in"
           >
             Portfolio
           </Typography>
@@ -80,7 +91,7 @@ export default function Navbar() {
             spacing={3}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
-            {menuItems.map((item) => (
+            {menuItems.map((item,index) => (
               <Link key={item} href={routes[item]} passHref>
                 <Button
                   sx={{
@@ -95,6 +106,8 @@ export default function Navbar() {
                     },
                     transition: "all 300ms ease",
                   }}
+                   data-aos="fade-up" 
+                   data-aos-delay={index * 100}
                 >
                   {item}
                 </Button>
@@ -108,6 +121,7 @@ export default function Navbar() {
             color="inherit"
             onClick={handleDrawerToggle}
             sx={{ display: { xs: "block", md: "none" }, color: "black" }}
+             data-aos="fade-left" 
           >
             <MenuIcon />
           </IconButton>
@@ -117,12 +131,14 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={handleDrawerToggle}>
         <List sx={{ width: 220 }}>
-          {menuItems.map((item) => (
+          {menuItems.map((item,index) => (
             <ListItem
               button
               key={item}
               onClick={handleDrawerToggle} // Drawer close
               sx={{ "&:hover": { backgroundColor: "#f0f0f0" } }}
+              data-aos="fade-right"
+              data-aos-delay={index * 100}
             >
               {/* ✅ Added Link for navigation */}
               <Link

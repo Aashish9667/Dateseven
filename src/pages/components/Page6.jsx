@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -7,6 +9,10 @@ import DownloadIcon from "@mui/icons-material/Download";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Button, Grid, Typography, Box } from "@mui/material";
 
+// ✅ AOS import
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function Page3() {
   const leftColumn = ["Logo Design", "Branding Identity", "Web Design"];
   const rightColumn = [
@@ -14,6 +20,14 @@ export default function Page3() {
     "Digital Marketing",
     "Product Design",
   ];
+
+  // ✅ AOS initialize
+  React.useEffect(() => {
+    AOS.init({
+      duration: 800, // animation time
+      once: true, // ek baar hi chalega
+    });
+  }, []);
 
   return (
     <Box sx={{ marginTop: { xs: "80px", md: "110px" } }}>
@@ -30,13 +44,13 @@ export default function Page3() {
               borderRadius: "20px",
               textAlign: "center",
             }}
+            data-aos="fade-right" // ✅ Animation
           >
             <img
               src="/image.jpg"
               alt="profile"
               style={{
                 display: "block",
-
                 borderRadius: "20px",
                 width: "100%",
                 maxWidth: "300px",
@@ -85,7 +99,10 @@ export default function Page3() {
               </style>
             </Box>
 
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 3 }}>
+            <Box
+              sx={{ display: "flex", justifyContent: "center", gap: 3 }}
+              data-aos="zoom-in" // ✅ Animation
+            >
               <FacebookIcon sx={iconStyle("#1877F2")} />
               <InstagramIcon sx={iconStyle("#E4405F")} />
               <TwitterIcon sx={iconStyle("#1DA1F2")} />
@@ -95,7 +112,13 @@ export default function Page3() {
         </Grid>
 
         {/* Right Side */}
-        <Grid item xs={12} md={7} sx={{mt: { xs: "0 auto", md: "10px" },}}>
+        <Grid
+          item
+          xs={12}
+          md={7}
+          sx={{ mt: { xs: "0 auto", md: "10px" } }}
+          data-aos="fade-left" // ✅ Animation
+        >
           <Typography
             sx={{
               fontSize: { xs: "20px", sm: "30px", md: "55px" }, // ✅ Responsive font size
@@ -112,7 +135,14 @@ export default function Page3() {
             and <br /> UX / UI Designer Based <br /> in New Delhi, India.
           </Typography>
 
-          <Box sx={{ mt:{xs:"22px",md:"10px"},mb:{xs:"30px",md:"20px"}, textAlign: { xs: "center", md: "left" } }}>
+          <Box
+            sx={{
+              mt: { xs: "22px", md: "10px" },
+              mb: { xs: "30px", md: "20px" },
+              textAlign: { xs: "center", md: "left" },
+            }}
+            data-aos="zoom-in" // ✅ Animation
+          >
             <a href="/resume.pdf" download style={{ textDecoration: "none" }}>
               <Button
                 sx={{
@@ -131,7 +161,12 @@ export default function Page3() {
             {/* Left Column */}
             <Grid item xs={12} sm={6}>
               {leftColumn.map((service, i) => (
-                <Typography key={i} sx={serviceStyle}>
+                <Typography
+                  key={i}
+                  sx={serviceStyle}
+                  data-aos="fade-up"
+                  data-aos-delay={i * 100} // ✅ Delay
+                >
                   <NorthEastIcon sx={{ fontSize: 16, mr: 1 }} />
                   {service}
                 </Typography>
@@ -141,7 +176,12 @@ export default function Page3() {
             {/* Right Column */}
             <Grid item xs={12} sm={6}>
               {rightColumn.map((service, i) => (
-                <Typography key={i} sx={serviceStyle}>
+                <Typography
+                  key={i}
+                  sx={serviceStyle}
+                  data-aos="fade-up"
+                  data-aos-delay={i * 100 + 200} // ✅ Delay alag rakha
+                >
                   <NorthEastIcon sx={{ fontSize: 16, mr: 1 }} />
                   {service}
                 </Typography>
@@ -154,10 +194,10 @@ export default function Page3() {
   );
 }
 
+// ✅ Icon style with hover effect
 const iconStyle = (hoverColor) => ({
   border: "2px solid grey",
   padding: "2px",
-  fontSize: "60px",
   color: "grey",
   cursor: "pointer",
   transition: "all 0.3s ease",
@@ -169,6 +209,7 @@ const iconStyle = (hoverColor) => ({
   },
 });
 
+// ✅ Service style
 const serviceStyle = {
   display: "flex",
   alignItems: "center",
@@ -176,3 +217,4 @@ const serviceStyle = {
   fontSize: "18px",
   mb: 2,
 };
+

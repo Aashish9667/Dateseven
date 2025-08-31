@@ -14,7 +14,18 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import SendIcon from "@mui/icons-material/Send";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 export default function ContactSection() {
+    useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation speed
+      once: true, // animation सिर्फ पहली बार चलेगा
+    });
+  }, []);
   return (
     <Box sx={{ backgroundColor: "#fff" }}>
       <Container>
@@ -23,6 +34,7 @@ export default function ContactSection() {
           textAlign="center"
           display="block"
           sx={{ marginTop: "20px", marginBottom: "5px" }}
+          data-aos="fade-down"
         >
           CONTACT
         </Typography>
@@ -31,6 +43,7 @@ export default function ContactSection() {
           textAlign="center"
           fontWeight="bold"
           sx={{ marginBottom: "20px" }}
+           data-aos="fade-up"
         >
           Get in Touch with Me!
         </Typography>
@@ -43,7 +56,7 @@ export default function ContactSection() {
           sx={{ minHeight: "80vh" }}
         >
           {/* Left Side: Office Info */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} data-aos="fade-right">
             <Paper
               elevation={0}
               sx={{
@@ -83,16 +96,10 @@ export default function ContactSection() {
           </Grid>
 
           {/* Right Side: Contact Form */}
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} data-aos="fade-left">
             <Paper
               elevation={3}
-              sx={{
-                width: "100%", // ✅ full width on mobile
-                maxWidth: { xs: "100%", md: 600 }, // ✅ mobile = full, desktop = 600px
-                mx: "auto", // ✅ center align
-                px: { xs: 2, sm: 4, }, // ✅ horizontal padding balanced
-                py: { xs: 3, sm: 4,  }, // ✅ vertical padding
-              }}
+              sx={{ maxWidth: 600, width: "100%",  padding: { xs: 2, sm: 4, md: 6, lg: 10 }, }}
             >
               <Typography variant="h4" align="center" gutterBottom>
                 Contact Us
@@ -102,18 +109,18 @@ export default function ContactSection() {
                 We'd love to hear from you. Please fill out the form below.
               </Typography>
 
-               <Box component="form" noValidate autoComplete="off" sx={{ width: "100%" }}>
+              <Box component="form" noValidate autoComplete="off" sx={{display:{xs:"flex"},justifyContent:{xs:"center"},alignItems:{xs:'center'}}}>
                 <Grid container spacing={2} mt={1}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Full Name" variant="outlined" />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Email" variant="outlined" />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Subject" variant="outlined" />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={6}>
                     <TextField fullWidth label="Message" variant="outlined" />
                   </Grid>
                   <Grid item xs={12}>
@@ -148,8 +155,9 @@ export default function ContactSection() {
               width: "100%",
               textAlign: "center", // Center the text
               padding: "1rem 0",
-              // Optional: light gray background
+              // Optional: light gray background  
             }}
+             data-aos="zoom-in"
           >
             <Typography variant="body2" sx={{ marginBottom: "0 auto" }}>
               © 2025 AK. All Rights Reserved.

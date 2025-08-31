@@ -7,6 +7,10 @@ import LanguageIcon from "@mui/icons-material/Language";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 
+// ✅ AOS import
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function SelectActionCard() {
   const services = [
     {
@@ -26,16 +30,31 @@ function SelectActionCard() {
     },
   ];
 
+  // ✅ AOS initialize
+  React.useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
+
   return (
-    
-    <Box sx={{ textAlign: "center",my:2.5}}>
-      <Typography variant="overline" gutterBottom>
+    <Box sx={{ textAlign: "center", my: 2.5 }}>
+      {/* Heading with animation */}
+      <Typography variant="overline" gutterBottom data-aos="fade-up">
         SERVICES
       </Typography>
-      <Typography variant="h5" gutterBottom sx={{marginBottom:"20px" ,fontWeight:"bold"}}>
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ marginBottom: "20px", fontWeight: "bold" }}
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         Quality Services
       </Typography>
 
+      {/* Cards with animation */}
       <Box
         sx={{
           display: "flex",
@@ -43,7 +62,7 @@ function SelectActionCard() {
           alignItems: "stretch",
           gap: 7,
           flexWrap: "wrap",
-         marginBottom:"40px"
+          marginBottom: "40px",
         }}
       >
         {services.map((service, index) => (
@@ -58,6 +77,8 @@ function SelectActionCard() {
                 boxShadow: 6,
               },
             }}
+            data-aos="zoom-in"
+            data-aos-delay={index * 200} // ✅ delay har card ke liye
           >
             <CardContent sx={{ background: "#e6eaee", textAlign: "left" }}>
               <Box
@@ -74,10 +95,18 @@ function SelectActionCard() {
               >
                 {service.icon}
               </Box>
-              <Typography variant="h6" gutterBottom  sx={{textAlign:{xs:'left',md:'left'},}}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ textAlign: { xs: "left", md: "left" } }}
+              >
                 {service.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary"  sx={{textAlign:{xs:'left',md:'left'},}}>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ textAlign: { xs: "left", md: "left" } }}
+              >
                 {service.desc}
               </Typography>
             </CardContent>
@@ -85,7 +114,6 @@ function SelectActionCard() {
         ))}
       </Box>
     </Box>
-    
   );
 }
 
