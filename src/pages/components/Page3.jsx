@@ -51,12 +51,12 @@ function ResumeBlock({ data }) {
       {data.map((item, index) => (
         <Box key={index}>
           <Box display="flex" alignItems="center" gap={2} mb={0.5}>
-            <WorkOutlineIcon color="disabled" fontSize="small" />
+            <WorkOutlineIcon color="black" fontSize="small" />
             <Chip
               label={item.period}
-              color="primary"
+              
               size="small"
-              sx={{ fontSize: "0.7rem" }}
+              sx={{ fontSize: "0.7rem",backgroundColor:'black',color:'white' }}
             />
           </Box>
 

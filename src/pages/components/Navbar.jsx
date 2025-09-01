@@ -7,7 +7,7 @@ import {
   Drawer,
   List,
   ListItem,
-  
+  Box,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
@@ -30,16 +30,8 @@ export default function Navbar() {
     setOpen(!open);
   };
 
-  const menuItems = [
-    "Home",
-    "About",
-    "Resume",
-    "Services",
-    "Projects",
-    "Contact",
-  ];
+  const menuItems = ["Home", "About", "Resume", "Services", "Projects", "Contact"];
 
-  // ✅ Added routes map for navigation
   const routes = {
     Home: "/",
     About: "/#about",
@@ -48,7 +40,8 @@ export default function Navbar() {
     Projects: "/#project",
     Contact: "/#contact",
   };
-    React.useEffect(() => {
+
+  React.useEffect(() => {
     AOS.init({
       duration: 800, // animation time
       once: true,    // animation केवल 1 बार चलेगा
@@ -91,7 +84,7 @@ export default function Navbar() {
             spacing={3}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
-            {menuItems.map((item,index) => (
+            {menuItems.map((item, index) => (
               <Link key={item} href={routes[item]} passHref>
                 <Button
                   sx={{
@@ -106,8 +99,8 @@ export default function Navbar() {
                     },
                     transition: "all 300ms ease",
                   }}
-                   data-aos="fade-up" 
-                   data-aos-delay={index * 100}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                 >
                   {item}
                 </Button>
@@ -121,7 +114,7 @@ export default function Navbar() {
             color="inherit"
             onClick={handleDrawerToggle}
             sx={{ display: { xs: "block", md: "none" }, color: "black" }}
-             data-aos="fade-left" 
+            data-aos="fade-left"
           >
             <MenuIcon />
           </IconButton>
@@ -130,34 +123,46 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={handleDrawerToggle}>
-        <List sx={{ width: 220 }}>
-          {menuItems.map((item,index) => (
-            <ListItem
-              button
-              key={item}
-              onClick={handleDrawerToggle} // Drawer close
-              sx={{ "&:hover": { backgroundColor: "#f0f0f0" } }}
-              data-aos="fade-right"
-              data-aos-delay={index * 100}
-            >
-              {/* ✅ Added Link for navigation */}
-              <Link
-                href={routes[item]}
-                passHref
-                style={{ textDecoration: "none" }}
+        {/* ✅ Change: Added Box wrapper with width and padding for mobile */}
+        <Box
+          sx={{
+            width: { xs: 240, sm: 280 }, // mobile friendly width
+            p: 2,
+          }}
+        >
+          <List>
+            {menuItems.map((item, index) => (
+              <ListItem
+                button
+                key={item}
+                onClick={handleDrawerToggle} // Drawer close
+                sx={{
+                  px: 2,
+                  py: 1.5,
+                  "&:hover": { backgroundColor: "#f0f0f0" },
+                }}
+                data-aos="fade-right"
+                data-aos-delay={index * 100}
               >
-                <Typography
-                  fontSize="1rem"
-                  fontWeight={500}
-                  color="black"
-                  sx={{ textDecoration: "none" }}
+                {/* ✅ Change: Link and Typography full width for better mobile click area */}
+                <Link
+                  href={routes[item]}
+                  passHref
+                  style={{ textDecoration: "none", width: "100%" }}
                 >
-                  {item}
-                </Typography>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
+                  <Typography
+                    fontSize="1rem"
+                    fontWeight={500}
+                    color="black"
+                    sx={{ width: "100%" }}
+                  >
+                    {item}
+                  </Typography>
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </Drawer>
     </>
   );
