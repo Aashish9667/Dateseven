@@ -9,12 +9,13 @@ export default function Resume() {
       <h1 style={{ textAlign: "center" }}>My Resume</h1>
 
       {/* ✅ PDF embed */}
-      <embed
-        src="/resume.pdf"
-        type="application/pdf"
+       <iframe
+        src="/resume.pdf#view=FitH&page=1" // FitH = width fit, page=1 = first page only
         width="100%"
         height="600px"
-      />
+        style={{ border: "none" }}
+        title="Resume"
+      ></iframe>
 
       {/* ✅ Home Button */}
       <div
