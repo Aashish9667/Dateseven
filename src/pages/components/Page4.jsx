@@ -67,7 +67,7 @@ export default function PricingSection() {
 
   return (
     <Box sx={{ backgroundColor: "white", py: 3 }}>
-      <Container>
+      <Container disableGutters sx={{ px: { xs: "24px", md: "0px" } }}>
         <Typography variant="overline" textAlign="center" display="block">
           PRICING
         </Typography>

@@ -30,8 +30,11 @@ export default function Page3() {
   }, []);
 
   return (
-    <Box sx={{ marginTop: { xs: "80px", md: "110px" } }}>
-      <Grid container spacing={5} alignItems="center" justifyContent="center">
+    <Box sx={{ marginTop: { xs: "80px", md: "110px" },
+    px: { xs: "24px", md: "0px" },
+       mx: { xs: "24px", md: "0px" }
+       ,maxWidth:"100%"}}>
+      <Grid container rowSpacing={5} columnSpacing={{ xs: 0, md: 5 }} alignItems="center" justifyContent="center">
         {/* Left Side */}
         <Grid item xs={12} md={5}>
           <Box

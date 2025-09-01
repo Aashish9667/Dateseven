@@ -27,7 +27,7 @@ export default function ContactSection() {
     });
   }, []);
   return (
-    <Box sx={{ backgroundColor: "#fff" }}>
+    <Box sx={{ backgroundColor: "#fff",  px:{xs:'24px',md:"0"}}}>
       <Container>
         <Typography
           variant="overline"
@@ -110,7 +110,7 @@ export default function ContactSection() {
               </Typography>
 
               <Box component="form" noValidate autoComplete="off" sx={{display:{xs:"flex"},justifyContent:{xs:"center"},alignItems:{xs:'center'}}}>
-                <Grid container spacing={2} mt={1}>
+                <Grid container spacing={2} mt={1} sx={{px:{xs:'30px',md:"0"}}}>
                   <Grid item xs={6}>
                     <TextField fullWidth label="Full Name" variant="outlined" />
                   </Grid>

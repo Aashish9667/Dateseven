@@ -81,7 +81,7 @@ export default function ResumeSection() {
   }, []);
 
   return (
-    <Box sx={{ backgroundColor: "#f5f7fa", py: 4 }}>
+    <Box sx={{ backgroundColor: "#f5f7fa", py: 4 ,px:{ xs: "24px", md: "0px" }}}>
       <Typography
         variant="overline"
         align="center"

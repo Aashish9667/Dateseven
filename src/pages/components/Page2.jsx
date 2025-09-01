@@ -63,7 +63,7 @@ function SelectActionCard() {
           gap: 7,
           flexWrap: "wrap",
           marginBottom: "40px",
-        }}
+        px: { xs: "24px", md: "0px" }, }}
       >
         {services.map((service, index) => (
           <Card
