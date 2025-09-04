@@ -1,5 +1,6 @@
 import * as React from "react";
-import Link from "next/link"; // ✅ Added for navigation
+import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   Toolbar,
   useScrollTrigger,
@@ -8,6 +9,8 @@ import {
   List,
   ListItem,
   Box,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
@@ -18,6 +21,25 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// ✅ Routes: Desktop (scroll) vs Mobile (new page)
+const desktopRoutes = {
+  Home: "/",
+  About: "/#about",
+  Resume: "/components/Resume",
+  Services: "/#service",
+  Projects: "/#project",
+  Contact: "/#contact",
+};
+
+const mobileRoutes = {
+  Home: "/",
+  About: "/", 
+  Resume: "/components/Resume",
+  Services: "/components/books",
+  Projects: "/components/bookp",
+  Contact: "/components/bookc",
+};
+
 export default function Navbar() {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -25,28 +47,38 @@ export default function Navbar() {
   });
 
   const [open, setOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setOpen(!open);
-  };
+  const handleDrawerToggle = () => setOpen(!open);
 
   const menuItems = ["Home", "About", "Resume", "Services", "Projects", "Contact"];
 
-  const routes = {
-    Home: "/",
-    About: "/#about",
-    Resume: "/components/Resume",
-    Services: "/#service",
-    Projects: "/#project",
-    Contact: "/#contact",
-  };
+  // ✅ Detect mobile/desktop
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const router = useRouter();
 
   React.useEffect(() => {
     AOS.init({
-      duration: 800, // animation time
-      once: true,    // animation केवल 1 बार चलेगा
+      duration: 800,
+      once: true,
     });
   }, []);
+
+  // ✅ Handle nav click (desktop → scroll, mobile → new page)
+  const handleNavClick = (item) => {
+    const path = isMobile ? mobileRoutes[item] : desktopRoutes[item];
+
+    if (isMobile) {
+      router.push(path);
+      setOpen(false); // drawer close
+    } else {
+      if (path.startsWith("/#")) {
+        const id = path.replace("/#", "#");
+        document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        router.push(path);
+      }
+    }
+  };
 
   return (
     <>
@@ -85,26 +117,26 @@ export default function Navbar() {
             sx={{ display: { xs: "none", md: "flex" } }}
           >
             {menuItems.map((item, index) => (
-              <Link key={item} href={routes[item]} passHref>
-                <Button
-                  sx={{
-                    color: "black",
-                    fontSize: trigger ? "0.9rem" : "1rem",
-                    fontWeight: 500,
-                    textTransform: "none",
-                    "&:hover": {
-                      textDecoration: "underline",
-                      textDecorationThickness: "2px",
-                      textUnderlineOffset: "4px",
-                    },
-                    transition: "all 300ms ease",
-                  }}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                >
-                  {item}
-                </Button>
-              </Link>
+              <Button
+                key={item}
+                onClick={() => handleNavClick(item)}
+                sx={{
+                  color: "black",
+                  fontSize: trigger ? "0.9rem" : "1rem",
+                  fontWeight: 500,
+                  textTransform: "none",
+                  "&:hover": {
+                    textDecoration: "underline",
+                    textDecorationThickness: "2px",
+                    textUnderlineOffset: "4px",
+                  },
+                  transition: "all 300ms ease",
+                }}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                {item}
+              </Button>
             ))}
           </Stack>
 
@@ -123,19 +155,13 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={handleDrawerToggle}>
-        {/* ✅ Change: Added Box wrapper with width and padding for mobile */}
-        <Box
-          sx={{
-            width: { xs: 240, sm: 280 }, // mobile friendly width
-            p: 2,
-          }}
-        >
+        <Box sx={{ width: { xs: 240, sm: 280 }, p: 2 }}>
           <List>
             {menuItems.map((item, index) => (
               <ListItem
                 button
                 key={item}
-                onClick={handleDrawerToggle} // Drawer close
+                onClick={() => handleNavClick(item)}
                 sx={{
                   px: 2,
                   py: 1.5,
@@ -144,21 +170,14 @@ export default function Navbar() {
                 data-aos="fade-right"
                 data-aos-delay={index * 100}
               >
-                {/* ✅ Change: Link and Typography full width for better mobile click area */}
-                <Link
-                  href={routes[item]}
-                  passHref
-                  style={{ textDecoration: "none", width: "100%" }}
+                <Typography
+                  fontSize="1rem"
+                  fontWeight={500}
+                  color="black"
+                  sx={{ width: "100%" }}
                 >
-                  <Typography
-                    fontSize="1rem"
-                    fontWeight={500}
-                    color="black"
-                    sx={{ width: "100%" }}
-                  >
-                    {item}
-                  </Typography>
-                </Link>
+                  {item}
+                </Typography>
               </ListItem>
             ))}
           </List>
