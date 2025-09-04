@@ -1,0 +1,4 @@
+
+html, body, #__next {
+  overflow-x: hidden; /* prevent horizontal scroll globally */
+}

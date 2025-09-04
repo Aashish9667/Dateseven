@@ -200,6 +200,7 @@ export default function Page3() {
 // ✅ Icon style with hover effect
 const iconStyle = (hoverColor) => ({
   border: "2px solid grey",
+  borderRadius:"4px",
   padding: "2px",
   color: "grey",
   cursor: "pointer",

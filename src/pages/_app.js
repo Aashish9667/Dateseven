@@ -5,6 +5,7 @@
 // }
 // pages/_app.js
 // pages/_app.js
+import '../styles/globals.css'; // add this at top
 import * as React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
