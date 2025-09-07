@@ -33,7 +33,7 @@ const desktopRoutes = {
 
 const mobileRoutes = {
   Home: "/",
-  About: "/", 
+  About: "/",
   Resume: "/components/Resume",
   Services: "/components/books",
   Projects: "/components/bookp",
@@ -49,7 +49,14 @@ export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const handleDrawerToggle = () => setOpen(!open);
 
-  const menuItems = ["Home", "About", "Resume", "Services", "Projects", "Contact"];
+  const menuItems = [
+    "Home",
+    "About",
+    "Resume",
+    "Services",
+    "Projects",
+    "Contact",
+  ];
 
   // ✅ Detect mobile/desktop
   const theme = useTheme();
