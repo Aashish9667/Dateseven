@@ -156,7 +156,7 @@ export default function ContactSection() {
       </Container>
     </Box>
     <Box
-        sx={{ display: "flex", justifyContent: "center", marginTop:{xs:"20px",md:"0"}}}
+        sx={{ display: "flex", justifyContent: "center", marginTop:{xs:"20px",md:"0"},marginBottom:{xs:"20px",md:"0"},}}
       >
         <Link href="/" passHref>
           <Button
