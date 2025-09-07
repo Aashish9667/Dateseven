@@ -27,6 +27,7 @@ export default function ContactSection() {
     });
   }, []);
   return (
+    <>
     <Box sx={{ backgroundColor: "#fff",  px:{xs:'24px',md:"0"}}}>
       <Container>
         <Typography
@@ -150,21 +151,15 @@ export default function ContactSection() {
               </Box>
             </Paper>
           </Grid>
-          <Box
-            sx={{
-              width: "100%",
-              textAlign: "center", // Center the text
-              padding: "1rem 0",
-              // Optional: light gray background  
-            }}
-             data-aos="zoom-in"
-          >
-            <Typography variant="body2" sx={{ marginBottom: "0 auto" }}>
-              © 2025 AK. All Rights Reserved.
-            </Typography>
-          </Box>
+          
         </Grid>
       </Container>
     </Box>
+    <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+        <Typography variant="body2">
+          © 2025 AK. All Rights Reserved.
+        </Typography>
+      </Box>
+      </>
   );
 }

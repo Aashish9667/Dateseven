@@ -23,10 +23,11 @@ export default function ContactSection() {
     useEffect(() => {
     AOS.init({
       duration: 1000, // animation speed
-      once: true, // animation सिर्फ पहली बार चलेगा
+      once: true, // animation one time move 
     });
   }, []);
   return (
+    <>
     <Box sx={{ backgroundColor: "#fff",  px:{xs:'24px',md:"0"}}}>
       <Container>
         <Typography
@@ -166,5 +167,23 @@ export default function ContactSection() {
         </Grid>
       </Container>
     </Box>
+    <Box
+        sx={{ display: "flex", justifyContent: "center", marginTop:{xs:"20px",md:"0"}}}
+      >
+        <Link href="/" passHref>
+          <Button
+            variant="contained"
+            sx={{
+             
+              backgroundColor: "black",
+              color: "white",
+              "&:hover": { background: "white", color: "black" },
+            }}
+          >
+            Go to Home
+          </Button>
+        </Link>
+      </Box>
+      </>
   );
 }

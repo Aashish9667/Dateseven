@@ -113,6 +113,24 @@ function SelectActionCard() {
           </Card>
         ))}
       </Box>
+        {/* ✅ Home Button */}
+            <div
+              style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}
+            >
+              <Link href="/" passHref>
+                <Button
+                  variant="contained"
+                  sx={{
+                   
+                    backgroundColor: "black",
+                    color: "white",
+                    "&:hover": { background: "white", color: "black" },
+                  }}
+                >
+                  Go to Home
+                </Button>
+              </Link>
+            </div>
     </Box>
   );
 }
