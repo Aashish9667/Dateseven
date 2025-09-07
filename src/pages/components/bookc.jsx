@@ -152,19 +152,6 @@ export default function ContactSection() {
               </Box>
             </Paper>
           </Grid>
-          <Box
-            sx={{
-              width: "100%",
-              textAlign: "center", // Center the text
-              padding: "1rem 0",
-              // Optional: light gray background  
-            }}
-             data-aos="zoom-in"
-          >
-            <Typography variant="body2" sx={{ marginBottom: "0 auto" }}>
-              © 2025 AK. All Rights Reserved.
-            </Typography>
-          </Box>
         </Grid>
       </Container>
     </Box>
