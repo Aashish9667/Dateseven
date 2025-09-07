@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <section id="about">
+     
         <Page6 />
-      </section>
+   
       <section id="service">
         <Page2 />
       </section>

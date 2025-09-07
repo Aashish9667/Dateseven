@@ -24,7 +24,7 @@ import "aos/dist/aos.css";
 // ✅ Routes: Desktop (scroll) vs Mobile (new page)
 const desktopRoutes = {
   Home: "/",
-  About: "/#about",
+  About: "/",
   Resume: "/components/Resume",
   Services: "/#service",
   Projects: "/#project",
