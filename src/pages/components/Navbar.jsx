@@ -30,15 +30,6 @@ const desktopRoutes = {
   Contact: "/#contact",
 };
 
-const mobileRoutes = {
-  Home: "/",
-  About: "/",
-  Resume: "/components/Resume",
-  Services: "/components/books",
-  Projects: "/components/bookp",
-  Contact: "/components/bookc",
-};
-
 export default function Navbar() {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -69,22 +60,19 @@ export default function Navbar() {
     });
   }, []);
 
-  // ✅ Handle nav click (desktop → scroll, mobile → new page)
+  //Handle nav click (desktop → scroll, mobile → new page)
   const handleNavClick = (item) => {
-    const path = isMobile ? mobileRoutes[item] : desktopRoutes[item];
+  const path = desktopRoutes[item]; //  desktopRoutes use 
 
-    if (isMobile) {
-      router.push(path);
-      setOpen(false); // drawer close
-    } else {
-      if (path.startsWith("/#")) {
-        const id = path.replace("/#", "#");
-        document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        router.push(path);
-      }
-    }
-  };
+  if (path.startsWith("/#")) {
+    const id = path.replace("/#", "#");
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  } else {
+    router.push(path);
+  }
+
+  setOpen(false); //  drawer close for mobile
+};
 
   return (
     <>
