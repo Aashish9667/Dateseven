@@ -1,4 +1,9 @@
 
 html, body, #__next {
   overflow-x: hidden; /* prevent horizontal scroll globally */
+scroll-behavior: smooth;
+  
+}
+section {
+  scroll-margin-top: 100px; /* Fixed navbar ki wajah se heading cut na ho */
 }
